@@ -1,0 +1,4 @@
+enum Items {
+  spielZeug,
+  kleidung,
+}
