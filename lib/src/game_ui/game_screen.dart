@@ -40,12 +40,12 @@ class _GameScreenState extends State<GameScreen> {
 
   double packageXPos = -1.0;
   final List<Item> packages = [
-    Item(Items.spielZeug, "images/toy.png"),
-    Item(Items.nahrung, "images/drink.png"),
-    Item(Items.kleidung, "images/sock.png")
+    Item(Items.spielZeug, "assets/images/toy.png"),
+    Item(Items.nahrung, "assets/images/drink.png"),
+    Item(Items.kleidung, "assets/images/sock.png")
   ];
 
-  Item currPackage = Item(Items.spielZeug, "images/toy.png");
+  Item currPackage = Item(Items.spielZeug, "assets/images/toy.png");
 
   void newPackage() {
     currPackage = packages[random.nextInt(4)];

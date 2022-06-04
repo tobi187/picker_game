@@ -1,14 +1,19 @@
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:picker_game/src/flame_stuff/flGame.dart';
 import 'package:picker_game/src/game_ui/game_screen.dart';
 
 void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData(),
-    darkTheme: ThemeData.dark(),
-    themeMode: ThemeMode.system,
-    home: const MyApp(),
-  ));
+  final pickerGame = MainGame();
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight])
+      .then((_) {
+    runApp(GameWidget(
+      game: pickerGame,
+    ));
+  });
 }
 
 class MyApp extends StatelessWidget {
