@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:picker_game/src/game_ui/game_screen.dart';
+import 'package:picker_game/src/game_ui/game_screen_oo.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -34,6 +35,17 @@ class MyApp extends StatelessWidget {
               );
             },
             child: Text("Play"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => GameScreenOO(),
+                ),
+              );
+            },
+            child: Text("PlayOOP"),
           ),
         ],
       ),

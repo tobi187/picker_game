@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:picker_game/src/game_elements/items.dart';
+import 'package:picker_game/src/models/carton.dart';
 import 'package:picker_game/src/screens/game_over.dart';
 
 class GameScreen extends StatefulWidget {
@@ -37,6 +38,7 @@ class _GameScreenState extends State<GameScreen> {
   Random random = Random();
   bool isCorrect = false;
   int points = 0;
+  late Timer timer;
 
   double packageXPos = -1.0;
   final List<Item> packages = [
@@ -44,6 +46,7 @@ class _GameScreenState extends State<GameScreen> {
     Item(Items.nahrung, "images/drink.png"),
     Item(Items.kleidung, "images/sock.png")
   ];
+  final List<Carton> cartons = [];
 
   Item currPackage = Item(Items.spielZeug, "images/toy.png");
 
@@ -114,8 +117,9 @@ class _GameScreenState extends State<GameScreen> {
                       (e) => Draggable<Items>(
                         data: e.category,
                         feedback: Image.asset(e.location),
-                        childWhenDragging: Image.asset(e.location),
-                        child: Image.asset(e.location),
+                        childWhenDragging:
+                            Image.asset(e.location, width: 100, height: 100),
+                        child: Image.asset(e.location, width: 100, height: 100),
                       ),
                     )
                     .toList(),
